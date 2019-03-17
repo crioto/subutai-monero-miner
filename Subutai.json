@@ -37,6 +37,10 @@
           "value": "${username}"
         },
         {
+            "key": "password",
+            "value": "${password}"
+          },
+        {
             "key": "rigId",
             "value": "${rigId}"
         },
@@ -81,8 +85,13 @@
       "username": {
         "description": "Username",
         "type": "string",
-        "default": "",
+        "default": "wallet",
         "validation": "[a-zA-Z0-9]+"
+      },
+      "password": {
+        "description": "Password",
+        "type": "string",
+        "default": "rigid:password"
       },
       "rigId": {
         "description": "Rig ID",

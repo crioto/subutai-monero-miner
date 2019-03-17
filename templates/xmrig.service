@@ -4,7 +4,7 @@ Description=xmrig on Subutai
 [Service]
 Type=simple
 ExecStart=/opt/xmrig/xmrig
-WorkingDirectory=/opt/xmrig --algo={{ algo }} --url={{ miningServer }} --user={{ username }} --rig-id={{ rigId }}
+WorkingDirectory=/opt/xmrig --algo={{ algo }} --url={{ miningServer }} --user={{ username }} --pass={{ password }} --rig-id={{ rigId }}
 Restart=always
 
 [Install]
