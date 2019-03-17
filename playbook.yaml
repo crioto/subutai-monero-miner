@@ -19,6 +19,7 @@
       get_url:
         url: https://github.com/xmrig/xmrig/releases/download/v{{ xmrigVersion }}/xmrig-{{ xmrigVersion }}-xenial-x64.tar.gz
         dest: /opt/xmrig/xmrig.tar.gz
+        mode: 0644
     - name: Extract miner
       unarchive:
         src: /opt/xmrig/xmrig.tar.gz
