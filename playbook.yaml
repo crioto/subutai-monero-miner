@@ -9,8 +9,10 @@
         upgrade: true
     - name: Install dependencies
       apt: 
-        name: "ca-certificates"
+        name: "{{ item }}"
         state: present
+      with_items:
+        - ca-certificates
     - name: Create xmrig directory
       file:
         path: /opt/xmrig
@@ -22,6 +24,7 @@
         mode: 0644
     - name: Extract miner
       unarchive:
+        remote_src: yes
         src: /opt/xmrig/xmrig.tar.gz
         dest: /opt/xmrig
         extra_opts: [--strip-components=1]
