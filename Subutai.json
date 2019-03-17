@@ -39,10 +39,6 @@
         {
             "key": "password",
             "value": "${password}"
-          },
-        {
-            "key": "rigId",
-            "value": "${rigId}"
         },
         {
             "key": "xmrigVersion",
@@ -92,12 +88,6 @@
         "description": "Password",
         "type": "string",
         "default": "rigid:password"
-      },
-      "rigId": {
-        "description": "Rig ID",
-        "type": "string",
-        "default": "",
-        "validation": "[a-zA-Z0-9]+"
       },
       "xmrigVersion": {
         "description": "Miner version",

@@ -7,6 +7,10 @@
       apt:
         update_cache: true
         upgrade: true
+    - name: Install dependencies
+      apt: 
+        name: "ca-certificates"
+        state: present
     - name: Create xmrig directory
       file:
         path: /opt/xmrig
