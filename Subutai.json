@@ -1,0 +1,100 @@
+{
+    "name": "${environmentName}",
+    "description": "Monero Miner",
+    "version": "1.0.0",
+    "author": "https://github.com/crioto",
+    "containers": [
+      {
+        "hostname": "xmrig",
+        "template": "debian-stretch",
+        "peer-criteria": "HTTP-GROUP",
+        "size": "${containerSize}"
+      }
+    ],
+    "peer-criteria": [
+      {
+        "name": "HTTP-GROUP"
+      }
+    ],
+    "ansible-configuration": {
+      "source-url": "https://github.com/crioto/subutai-monero-miner/archive/master.zip",
+      "ansible-playbook": "playbook.yaml",
+      "extra-vars": [
+        {
+          "key": "environmentName",
+          "value": "${environmentName}"
+        },
+        {
+          "key": "algo",
+          "value": "${algo}"
+        },
+        {
+          "key": "miningServer",
+          "value": "${miningServer}"
+        },
+        {
+          "key": "username",
+          "value": "${username}"
+        },
+        {
+            "key": "rigId",
+            "value": "${rigId}"
+        },
+        {
+            "key": "xmrigVersion",
+            "value": "${xmrigVersion}"
+        }
+      ],
+      "groups": [
+        {
+          "name": "xmrig",
+          "hostnames": [
+            "xmrig"
+          ]
+        }
+      ]
+    },
+    "user-variables": {
+      "environmentName": {
+        "description": "Enter the environment name",
+        "type": "string",
+        "default": "monero",
+        "validation": "[a-zA-Z0-9]+"
+      },
+      "containerSize": {
+        "description": "Container Size",
+        "type": "enum",
+        "default": "TINY",
+        "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+      },
+      "algo": {
+        "description": "Algorithm",
+        "type": "enum",
+        "default": "cryptonight",
+        "validation": "cryptonight,cryptonight-lite,cryptonight-heavy"
+      },
+      "miningServer": {
+        "description": "URL of the mining server",
+        "type": "string",
+        "default": ""
+      },
+      "username": {
+        "description": "Username",
+        "type": "string",
+        "default": "",
+        "validation": "[a-zA-Z0-9]+"
+      },
+      "rigId": {
+        "description": "Rig ID",
+        "type": "string",
+        "default": "",
+        "validation": "[a-zA-Z0-9]+"
+      },
+      "xmrigVersion": {
+        "description": "Miner version",
+        "type": "enum",
+        "default": "2.14.1",
+        "validation": "2.14.1,2.14.0"
+      }
+    }
+  }

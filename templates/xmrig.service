@@ -1,0 +1,11 @@
+[Unit]
+Description=xmrig on Subutai
+
+[Service]
+Type=simple
+ExecStart=/opt/xmrig/xmrig
+WorkingDirectory=/opt/xmrig --algo={{ algo }} --url={{ miningServer }} --user={{ username }} --rig-id={{ rigId }}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
